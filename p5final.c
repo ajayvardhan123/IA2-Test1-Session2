@@ -1,43 +1,30 @@
-
-#include <stdio.h>
+#include<stdio.h>
 int input()
 {
   int a;
-  printf("Enter the number\n");
-  scanf("%d%d",&a);
+  printf("Enter the number :\n");
+  scanf("%d",&a);
   return a;
 }
-
-int find_gcd(int a, int b)
-{
-  int gcd,t;
-  if( a >b)
-  {
-    t = a;
-    a = b;
-    b = t;
-  }
-  if ( b%a == 0)
-    return a;
-  for(int i=2; i<a/2; i++)
-  {
-    if ( a%i==0 && b%i==0)
-      gcd = i;
-  }
-  return gcd;
+int gcd(int a,int b)
+{ int r;
+  for(int i=3;i<=a && i<=b;i++)
+    {
+      if(a%i==0 && b%i==0)
+         r=i;
+    }
+  return r;
 }
-
-void output(int a, int b, int gcd)
+void output(int a,int b,int hcf)
 {
-  printf("The gcd %d and %d is %d\n",a,b,gcd);
+  printf("The H.C.F (G.C.D) of %d and %d is %d",a,b,hcf);
 }
-
 int main()
 {
-  int a, b, gcd;
-  a = input();
-  b = input();
-  gcd = find_gcd(a,b);
-  output(a,b,gcd);
+  int a,b,hcf;
+  a=input();
+  b=input();
+  hcf=gcd(a,b);
+  output(a,b,hcf);
   return 0;
 }
